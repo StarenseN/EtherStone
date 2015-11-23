@@ -1,6 +1,4 @@
-﻿#Test New Commit Original
-
-import random
+﻿import random
 
 maxAttack = 10
 maxBody = 10
@@ -60,18 +58,18 @@ class Deck:
         return deck
     
     def displaydeck(self):
-
+        print("+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+        print("Number of cards: "+ str(len(self.decklist)))
         for x in self.decklist:
-            print("+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+            #print("+-+-+-+-+-+-+-+-+-+-+-+-+-+")
             print("Owner: " + str(x['owner']))
             print("ID: " + str(x['id']))
             #print "Name: " + str(x['name'])         
             print("Attack: " + str(x['attack']))
             print("Body: " + str(x['body']))
-            print("Bonus: " + str(x['bonus']) +"%")
+            print("Bonus: +" + str(x['bonus']) +"%")
             print("Rarity: " + str(x['rarity']))
             print("\n")
-
    
 class Fight:
     
@@ -81,40 +79,54 @@ class Fight:
         self.owner1 = player
         self.owner2 = ordinateur
         
-        #Arbitrary set cards to 1 | TODO: SUBJECT TO CHANGE
-        self.deck1 = Deck(self.owner1, 1)
-        self.deck2 = Deck(self.owner2, 1)
+        #Arbitrary set cards to 2 | TODO: SUBJECT TO CHANGE
+        self.deck1 = Deck(self.owner1, 3)
+        self.deck2 = Deck(self.owner2, 3)
 
     def fightCard(self):
         
         #Show the fighters: | SUBJECT TO CHANGE IF DECK TOO LARGE
-        print(self.deck1.displaydeck(), self.deck2.displaydeck())
+        print(self.deck1.displaydeck())
+        print(self.deck2.displaydeck())
         
         #Fight Logic now:
-        att1 = self.deck1.decklist[0]['attack']
-        att2 = self.deck2.decklist[0]['attack']
-        body1 = self.deck1.decklist[0]['body']
-        body2 = self.deck2.decklist[0]['body']
+            #score
+        score1 = 0
+        score2 = 0
+        #Master Loop trough each card
+        i=0
+        while i < len(self.deck1.decklist):
+            print("\n***CARD " + str(i+1) + " Fight***\n") 
+            att1 = self.deck1.decklist[i]['attack']
+            att2 = self.deck2.decklist[i]['attack']
+            body1 = self.deck1.decklist[i]['body']
+            body2 = self.deck2.decklist[i]['body']
+            
+            #fight till one card is dead          
+            while body1 > 0 and body2 > 0:
+                print("*new round*")
+                #way to find which hit first (it's 50/50 chance + bonus)
+                if random.random()+self.deck1.decklist[0]['bonus']/100 > random.random()+self.deck2.decklist[0]['bonus']/100:
+                    print("Player hit first")
+                    body2 -= att1
+                    print("Computers card body is now: "+str(body2))
+                else:
+                    print("Ordinateur hit first")
+                    body1 -= att2
+                    print("Players card body is now: "+str(body1))
         
-        while body1 > 0 and body2 > 0:
-            print("NEW ROUND")
-            #fight till one card is dead
-            #way to find which hit first (it's 50/50 chance + bonus)
-            if random.random()+self.deck1.decklist[0]['bonus']/100 > random.random()+self.deck2.decklist[0]['bonus']/100:
-                print("Player hit first")
-                body2 -= att1
-                print("Computers card body is now: "+str(body2))
-            else:
-                print("Ordinateur hit first")
-                body1 -= att2
-                print("Players card body is now: "+str(body1))
-        
-        #One card is now dead, tell the winner
-        if body1 <= 0:
-                print("Player lose")
-        elif body2 <= 0:
-                print("Player win")
-                
+            #One card is now dead, tell the winner
+            if body1 <= 0:
+                    print("battle lost")
+                    score2 += 1
+            elif body2 <= 0:
+                    print("battle won")
+                    score1 += 1
+            i += 1
+        if score1 > score2:
+            print("---------YOU WIN--------- (" +str(score1) + "/" + str(score2) +")")
+        else:
+            print("---------YOU LOSE--------- ("+str(score2) + "/"+ str(score1) + ")")
     
 #TEST AREA    
 
