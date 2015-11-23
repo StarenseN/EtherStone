@@ -1,4 +1,6 @@
-﻿import random
+﻿#Test New Commit Original
+
+import random
 
 maxAttack = 10
 maxBody = 10
