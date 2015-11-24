@@ -2,6 +2,7 @@
 import Purse
 
 import random
+from random import shuffle
 
 maxAttack = 10
 maxBody = 10
@@ -47,7 +48,6 @@ class Deck:
         #TODO: Different Owner Logic (2 list ? or Classed by Owner?)
         
         self.decklist = self.create(owner, n) #decklist is a LIST "deck" wich each element is an OBJECT
-        self.owner = owner
     
     def create(self, owner, n): #create random cards
 
@@ -61,10 +61,10 @@ class Deck:
         return deck
     
     def displaydeck(self):
-        print("+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+        
         print("Number of cards: "+ str(len(self.decklist)))
+        print("+-+-+-+-+-+-+-+-+-+-+-+-+-+")
         for x in self.decklist:
-            #print("+-+-+-+-+-+-+-+-+-+-+-+-+-+")
             print("Owner: " + str(x['owner']))
             print("ID: " + str(x['id']))
             #print "Name: " + str(x['name'])         
@@ -73,6 +73,11 @@ class Deck:
             print("Bonus: +" + str(x['bonus']) +"%")
             print("Rarity: " + str(x['rarity']))
             print("\n")
+
+    def shuffleDeck(self):
+        
+        shuffle(self.decklist)
+        return self.decklist
    
 class Fight:
     
@@ -82,9 +87,14 @@ class Fight:
         self.owner1 = player
         self.owner2 = ordinateur
         
-        #Arbitrary set cards to 2 | TODO: SUBJECT TO CHANGE
-        self.deck1 = Deck(self.owner1, 3)
-        self.deck2 = Deck(self.owner2, 3)
+        #Arbitrary set cards to 3 | TODO: SUBJECT TO CHANGE
+        self.deck1 = Deck(self.owner1, 1)
+        self.deck2 = Deck(self.owner2, 1)
+
+        #Shuffle the decks
+
+        self.deck1.decklist = self.deck1.shuffleDeck()
+        self.deck2.decklist = self.deck2.shuffleDeck()
 
     def fightCard(self):
         
@@ -93,9 +103,11 @@ class Fight:
         print(self.deck2.displaydeck())
         
         #Fight Logic now:
-            #score
-        score1 = 0
-        score2 = 0
+
+        #score
+        score1 = 0 #Player
+        score2 = 0 #Computer
+
         #Master Loop trough each card
         i=0
         while i < len(self.deck1.decklist):
@@ -110,13 +122,13 @@ class Fight:
                 print("*new round*")
                 #way to find which hit first (it's 50/50 chance + bonus)
                 if random.random()+self.deck1.decklist[0]['bonus']/100 > random.random()+self.deck2.decklist[0]['bonus']/100:
-                    print("Player hit first")
+                    print(self.owner1 +" hits first doing "+ str(att1) + " damages")
                     body2 -= att1
-                    print("Computers card body is now: "+str(body2))
+                    print(self.owner2 + "'s card body is now: "+str(body2) + "\n")
                 else:
-                    print("Ordinateur hit first")
+                    print(self.owner2 + " hits first doing "+ str(att2) + " damages")
                     body1 -= att2
-                    print("Players card body is now: "+str(body1))
+                    print(self.owner1 + "'s card body is now: "+str(body1) + "\n")
         
             #One card is now dead, tell the winner
             if body1 <= 0:
@@ -127,17 +139,18 @@ class Fight:
                     score1 += 1
             i += 1
         if score1 > score2:
-            print("---------YOU WIN--------- (" +str(score1) + "/" + str(score2) +")")
+            print("---------" + self.owner1.upper() + " WINS--------- (" +str(score1) + "/" + str(score2) +")")
         elif score1 < score2:
-            print("---------YOU LOSE--------- ("+str(score2) + "/"+ str(score1) + ")")
+            print("---------" + self.owner2.upper() + " WINS--------- ("+str(score2) + "/"+ str(score1) + ")")
         else:
             print("---------TIE GAME--------- ("+str(score2) + "/"+ str(score1) + ")")
     
 class Hero:
     pass
 
+
 #TEST AREA    
 
-fight1 = Fight("Player", "Ordinateur")
+fight1 = Fight("Mathieu", "Hugo")
 
 fight1.fightCard()
