@@ -149,8 +149,8 @@ class Hero:
     pass
 
 
-#TEST AREA    
+#RUN
 
-fight1 = Fight("Mathieu", "Hugo")
+fight1 = Fight("Player", "Computer")
 
 fight1.fightCard()
