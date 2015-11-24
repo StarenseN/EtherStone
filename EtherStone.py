@@ -1,4 +1,7 @@
-﻿import random
+﻿#import Purse.py
+import Purse
+
+import random
 
 maxAttack = 10
 maxBody = 10
@@ -125,14 +128,16 @@ class Fight:
             i += 1
         if score1 > score2:
             print("---------YOU WIN--------- (" +str(score1) + "/" + str(score2) +")")
-        else:
+        elif score1 < score2:
             print("---------YOU LOSE--------- ("+str(score2) + "/"+ str(score1) + ")")
+        else:
+            print("---------TIE GAME--------- ("+str(score2) + "/"+ str(score1) + ")")
     
-#TEST AREA    
+class Hero:
+    pass
 
-#Fight("Player", "Ordinateur")
+#TEST AREA    
 
 fight1 = Fight("Player", "Ordinateur")
 
 fight1.fightCard()
-
