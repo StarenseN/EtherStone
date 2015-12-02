@@ -88,8 +88,8 @@ class Fight:
         self.owner2 = ordinateur
         
         #Arbitrary set cards to 3 | TODO: SUBJECT TO CHANGE
-        self.deck1 = Deck(self.owner1, 1)
-        self.deck2 = Deck(self.owner2, 1)
+        self.deck1 = Deck(self.owner1, 3)
+        self.deck2 = Deck(self.owner2, 3)
 
         #Shuffle the decks
 
