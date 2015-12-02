@@ -12,7 +12,7 @@ When run is hit (on codeskulptor):
   - **cards** and **decks**: 2 decks, 2 cards each (4 in total) are created. NB: number of cards per deck can be changed. They are assigned to owner: "Player" and "Computer".
   - **rarity**: cards are randomly generated, rarity rank depends of the values sum the card has.
   - **shuffle**: Both decks are shuffled.
-  - **fight**: card by card initiated, they are drawn from the top of the deck.
+  - **fight**: card by card, they are drawn from the top of the deck.
   - **hit first**: Each card has 50% chance to hit first. 
   - **bonus**: Here comes the bonus, the bonus are added to the 50% chance to hit first. 
   - **attack**: Once a card is luckily chosen to hit first, it lowers the body of the ennemy card by the value of the attack.
