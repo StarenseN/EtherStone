@@ -1,5 +1,5 @@
-#import Purse.py
-# import Purse
+#import Purse.py (used in multi-files game)
+#import Purse
 
 import random
 from random import shuffle
@@ -87,9 +87,9 @@ class Fight:
         self.owner1 = player
         self.owner2 = ordinateur
         
-        #Arbitrary set cards to 3 | TODO: SUBJECT TO CHANGE
-        self.deck1 = Deck(self.owner1, 3)
-        self.deck2 = Deck(self.owner2, 3)
+        #Arbitrary set cards to 2 | TODO: SUBJECT TO CHANGE
+        self.deck1 = Deck(self.owner1, 2)
+        self.deck2 = Deck(self.owner2, 2)
 
         #Shuffle the decks
 
@@ -151,6 +151,5 @@ class Hero:
 
 #RUN
 
-fight1 = Fight("Player", "Computer")
-
-fight1.fightCard()
+fight = Fight("Player", "Computer")
+fight.fightCard()
