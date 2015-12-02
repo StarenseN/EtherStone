@@ -1,5 +1,5 @@
-﻿#import Purse.py
-import Purse
+#import Purse.py
+# import Purse
 
 import random
 from random import shuffle
