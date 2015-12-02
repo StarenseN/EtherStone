@@ -9,16 +9,16 @@ Cards generated per deck is set to 2 (you can change it in class Fight, init)
 ### Game Logic:
 
 When run is hit (on codeskulptor):
-  - "Player" and "Computer" are in play
-  - 2 decks, 2 cards each (4 in total) are created. This number of cards per deck can be changed.
-  - Both decks are shuffled.
-  - Card by card drawn from the top of the deck, will fight
+  - PLAYERS: "Player" and "Computer" are in play
+  - CARDS and DECKS CREATION: 2 decks, 2 cards each (4 in total) are created. This number of cards per deck can be changed.
+  - SHUFFLE: Both decks are shuffled.
+  - FIGHT card by card initiated, they are drawn from the top of the deck.
   - HIT FIRST: Each card has 50% chance to hit first. 
   - BONUS: Here comes the bonus, the bonus are added to the 50% chance to hit first. 
   - ATTACK: Once a card is chosen to hit first, it lowers the body of the ennemy card by the value of the attack.
-  - Round repeats untill a card is dead (body <= 0)
-  - Game end when each cards have played once.
-  - Score is calculated, Winner displayed
+  - ROUNDS: Round repeats untill a card is dead (body <= 0)
+  - END: Game end when each cards have played once.
+  - SCORE: Score is calculated, Winner displayed
 
 ### Futher developement:
 
