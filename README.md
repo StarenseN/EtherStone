@@ -9,8 +9,7 @@ Cards generated per deck is set to 2 (you can change it in class Fight, init)
 ### Game Logic:
 
 When run is hit (on codeskulptor):
-  - **players**: "Player" and "Computer" are in play
-  - **cards** and **decks**: 2 decks, 2 cards each (4 in total) are created. NB: number of cards per deck can be changed.
+  - **cards** and **decks**: 2 decks, 2 cards each (4 in total) are created. NB: number of cards per deck can be changed. They are assigned to owner: "Player" and "Computer".
   - **rarity**: cards are randomly generated, rarity rank depends of the values sum the card has.
   - **shuffle**: Both decks are shuffled.
   - **fight**: card by card initiated, they are drawn from the top of the deck.
