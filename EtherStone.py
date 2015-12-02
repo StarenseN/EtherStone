@@ -7,7 +7,7 @@ from random import shuffle
 maxAttack = 10
 maxBody = 10
 maxBonusFactor = 14 #Bonus cannot exceed 31 (otherwise card has 100% first hit)) 
-                    #TODO find a better to modelize bonus
+                    #TODO find a better way to modelize bonus
 
 class Card:
     
