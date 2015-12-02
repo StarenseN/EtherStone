@@ -4,6 +4,7 @@
 import random
 from random import shuffle
 
+#MAX VARIABLES
 maxAttack = 10
 maxBody = 10
 maxBonusFactor = 14 #Bonus cannot exceed 31 (otherwise card has 100% first hit)) 
@@ -32,7 +33,7 @@ class Card:
         #return ''.join(str(random.randint(0,9)) for x in range(8))
     
     def setRarity(self):
-        #rarity is dependent of the MAX possibles.
+        #rarity is dependent of the MAX VARIABLES (check beginning of the code).
         total = maxAttack + maxBody + maxBonusFactor**2/10
         if self.obj['attack']+self.obj['body']+self.obj['bonus'] >= 0.8*total:
             return "!!**LENGENDARY**!!"
