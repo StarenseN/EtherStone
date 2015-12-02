@@ -22,6 +22,6 @@ When run is hit (on codeskulptor):
 
 ### Futher developement:
 
-multi files game with purse.py which will implement a wallet logic (to buy cards)
+multi files game with purse.py which will implement a wallet logic (to buy cards with in-game gold, experience)
 
 ### Dev is on hold 
