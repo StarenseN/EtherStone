@@ -16,7 +16,7 @@ When run is hit (on codeskulptor):
   - **fight**: card by card initiated, they are drawn from the top of the deck.
   - **hit first**: Each card has 50% chance to hit first. 
   - **bonus**: Here comes the bonus, the bonus are added to the 50% chance to hit first. 
-  - **attack**: Once a card is chosen to hit first, it lowers the body of the ennemy card by the value of the attack.
+  - **attack**: Once a card is luckily chosen to hit first, it lowers the body of the ennemy card by the value of the attack.
   - **rounds**: Round repeats untill a card is dead (body <= 0)
   - **end**: Game end when each cards have played once.
   - **score**: Score is calculated, Winner displayed
