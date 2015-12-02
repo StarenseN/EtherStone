@@ -25,3 +25,11 @@ When run is hit (on codeskulptor):
 multi files game with purse.py which will implement a wallet logic (to buy cards with in-game gold, experience)
 
 ### Dev is on hold 
+
+### Credits:
+
+**Vutran:**
+https://github.com/vutran
+https://www.livecoding.tv/vutran/
+
+For inspiring me doing this on codeskulptor.
